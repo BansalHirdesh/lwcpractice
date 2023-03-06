@@ -1,3 +1,26 @@
 <template>
-    
+    <lightning-card>
+        <div>
+            <lightning-combobox
+            name="team"
+            label="Team"
+            value={team}
+            placeholder="Select Team"
+            options={teamsOptionsList}
+            onchange={handleChange}
+            required >
+            </lightning-combobox>
+            <div>
+                <ul>
+                    <template for:each={teamMembers} for:item="tMember">
+                        <li key={tMember.Id} >
+                            Name : {tMember.Name} <br>
+                            Team : {tMember.Team__r.Name} <br>
+                            Skills : {tMember.Skills__c}
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </lightning-card>
 </template>
